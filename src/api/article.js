@@ -10,7 +10,18 @@ const article = {
     // 文章信息   
     articleList(params) {
         return axios.post(`${base.dev}/api/backstage/article`, qs.stringify(params));
-    }
+    },
+    // 按照标题查询列表信息   
+    articleListBytitle(params) {
+        return axios.post(`${base.dev}/api/backstage/articlebytitle`, qs.stringify(params));
+    },
+    //删除指定文章
+    articleDel(params) {
+        return axios.post(`${base.dev}/api/backstage/articledel`, qs.stringify(params));
+    },
+    articleEdt(params) {
+        return axios.post(`${base.dev}/api/backstage/articleedt`, qs.stringify(params));
+    },
     // 其他接口…………
 }
 

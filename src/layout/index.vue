@@ -8,11 +8,7 @@
         <Navbar></Navbar>
       </el-header>
       <el-main>
-        <Maincontent class="maincontent">
-          <transition name="fade-transform">
-            <router-view></router-view>
-          </transition>
-        </Maincontent>
+        <Maincontent></Maincontent>
       </el-main>
     </el-container>
   </el-container>
@@ -39,7 +35,16 @@ export default {
   position: relative;
   z-index: 3;
   .el-header {
+    position: relative;
+    z-index: 100;
     padding: 0;
+  }
+  .el-main {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 0;
+    margin: 20px;
   }
 }
 </style>

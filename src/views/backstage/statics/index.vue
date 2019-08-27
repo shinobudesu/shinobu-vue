@@ -130,7 +130,20 @@ export default {
 <style lang="less" scoped>
 #contain {
   position: relative;
+  padding: 10px;
+  box-sizing: border-box;
   height: 100%;
+  .el-row {
+    margin: 0;
+  }
+  .el-col-6 {
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
   .static-item {
     background: #fff;
     box-shadow: 0 0 5px #ccc;

@@ -10,6 +10,10 @@ const log = {
     // 列表信息   
     logList(params) {
         return axios.post(`${base.dev}/api/backstage/log`, qs.stringify(params));
+    },
+    // 按照执行人查询列表信息   
+    logListByuser(params) {
+        return axios.post(`${base.dev}/api/backstage/logbyuser`, qs.stringify(params));
     }
     // 其他接口…………
 }

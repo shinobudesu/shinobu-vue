@@ -9,6 +9,9 @@ import ElementUI from 'element-ui'
 import VueLazyload from 'vue-lazyload'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.less'
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+Vue.use(mavonEditor);
 Vue.use(ElementUI);
 Vue.use(VueLazyload, {
     preLoad: 1.3,
