@@ -1,8 +1,8 @@
 <template>
   <div id="mainconent">
-    <transition name="fade-transform">
-      <router-view :key="key"></router-view>
-    </transition>
+    <!-- <transition name="fade-transform"> -->
+    <router-view :key="key"></router-view>
+    <!-- </transition> -->
   </div>
 </template>
 
