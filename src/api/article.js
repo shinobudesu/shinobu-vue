@@ -15,10 +15,15 @@ const article = {
     articleListBytitle(params) {
         return axios.post(`${base.dev}/api/backstage/articlebytitle`, qs.stringify(params));
     },
+    // 按照ID查询信息   
+    articleListByid(params) {
+        return axios.post(`${base.dev}/api/backstage/articlebyid`, qs.stringify(params));
+    },
     //删除指定文章
     articleDel(params) {
         return axios.post(`${base.dev}/api/backstage/articledel`, qs.stringify(params));
     },
+    //编辑指定文章
     articleEdt(params) {
         return axios.post(`${base.dev}/api/backstage/articleedt`, qs.stringify(params));
     },

@@ -229,7 +229,10 @@ export default {
         });
     },
     //处理编辑内容
-    handleEdit(row, index) {},
+    handleEdit(row, index) {
+      this.$router.push(`/backstage/articleByedit/${row.a_id}`);
+      console.log(row, index);
+    },
     //处理编辑标题
     handleEditBytitle(row, index) {
       this.edtArticle(row.a_id, index, {
@@ -240,7 +243,6 @@ export default {
     },
     //处理删除
     handleDelete(row, index) {
-      console.log(row, index);
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",

@@ -33,10 +33,10 @@ export default {
   height: 100%;
   width: 100%;
   position: relative;
-  z-index: 3;
+  z-index: 1;
   .el-header {
     position: relative;
-    z-index: 100;
+    z-index: 1;
     padding: 0;
   }
   .el-main {

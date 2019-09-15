@@ -7,6 +7,8 @@ const Layout = () =>
     import ("@/layout/index.vue");
 const Article = () =>
     import ("@/views/backstage/article/index.vue");
+const ArticleEdit = () =>
+    import ("@/views/backstage/article/edit.vue");
 const Statics = () =>
     import ("@/views/backstage/statics/index.vue");
 const Log = () =>
@@ -42,6 +44,14 @@ const router = new Router({
                 requireAuth: true,
             },
             component: Article
+        }, {
+            path: "/backstage/articleByedit/:id",
+            name: "articlebyedit",
+            meta: {
+                title: '文章编辑',
+                requireAuth: true,
+            },
+            component: ArticleEdit
         }, {
             path: "/backstage/log",
             name: "log",
