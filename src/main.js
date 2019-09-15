@@ -4,6 +4,7 @@ import 'normalize.css/normalize.css' // a modern alternative to CSS resets
 import router from "@/router/index.js"
 import store from "@/store/index.js";
 import api from "@/api/index.js"
+import utils from "@/utils/tools.js"
 import VueCookie from "vue-cookie"
 import ElementUI from 'element-ui'
 import VueLazyload from 'vue-lazyload'
@@ -19,6 +20,7 @@ Vue.use(VueLazyload, {
     attempt: 1
 })
 Vue.prototype.$api = api; // 将api挂载到vue的原型上
+Vue.prototype.$utils = utils; // 将utils挂载到vue的原型上
 Vue.use(VueCookie);
 Vue.config.productionTip = false;
 

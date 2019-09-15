@@ -1,7 +1,7 @@
 <template>
   <div id="contain">
     <div class="table-tools">
-      <el-button type="primary" icon="el-icon-plus" class="tools-bt" id="add">新增</el-button>
+      <el-button type="primary" icon="el-icon-plus" class="tools-bt" id="add" @click="insArticle">新增</el-button>
       <el-button
         type="primary"
         icon="el-icon-search"
@@ -228,10 +228,12 @@ export default {
           });
         });
     },
+    insArticle() {
+      this.$router.push(`/backstage/articleByedit/ins`);
+    },
     //处理编辑内容
     handleEdit(row, index) {
       this.$router.push(`/backstage/articleByedit/${row.a_id}`);
-      console.log(row, index);
     },
     //处理编辑标题
     handleEditBytitle(row, index) {
@@ -276,6 +278,7 @@ export default {
 #contain {
   position: relative;
   height: 100%;
+  overflow: hidden;
   .table-tools {
     display: flex;
     flex-flow: row-reverse;

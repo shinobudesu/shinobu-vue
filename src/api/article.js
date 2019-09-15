@@ -27,6 +27,10 @@ const article = {
     articleEdt(params) {
         return axios.post(`${base.dev}/api/backstage/articleedt`, qs.stringify(params));
     },
+    //保存新文章
+    articleIns(params) {
+        return axios.post(`${base.dev}/api/backstage/articleins`, qs.stringify(params));
+    },
     // 其他接口…………
 }
 
