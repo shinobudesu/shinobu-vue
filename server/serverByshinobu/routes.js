@@ -305,6 +305,23 @@ router.post("/api/backstage/articlebytitle", function(req, res, next) {
     });
 });
 
+//按ID查询文章
+// a_id  文章ID
+router.post("/api/backstage/articlebyid", function(req, res, next) {
+    let sql1 = "select * from sh_article where a_id = " + mysql.pool.escape(req.body.a_id);
+    let data = [];
+    mysql.query(sql1, function(err, rows) {
+        if (err) {} else {
+            data.push({
+                status: 'OK',
+                code: '200'
+            });
+            data.push(rows);
+            res.json(data).end();
+        }
+    });
+});
+
 // 删除某篇文章
 // a_id 文章id
 router.post("/api/backstage/articledel", function(req, res, next) {
@@ -327,6 +344,23 @@ router.post("/api/backstage/articleedt", function(req, res, next) {
     let sql1 = "update sh_article " + computedParams(req.body, 'a_id') + " where a_id =" + mysql.pool.escape(req.body.a_id);
     let data = [];
     mysql.query(sql1, function(err, rows) {
+        if (err) {} else {
+            data.push({
+                status: 'OK',
+                code: '200'
+            });
+            res.json(data).end();
+        }
+
+    });
+});
+
+// 保存新文章
+router.post("/api/backstage/articleins", function(req, res, next) {
+    let sql1 = "insert into sh_article (a_title,a_content,a_type,a_createuid,a_createusername) VALUES (?,?,?,?,?)";
+    let data = [];
+    let value = [req.body.a_title, req.body.a_content, req.body.a_type, req.body.a_createuid, req.body.a_createusername];
+    mysql.insert(sql1, value, function(err, rows) {
         if (err) {} else {
             data.push({
                 status: 'OK',
@@ -374,19 +408,15 @@ function timeFormat(time) {
     return (clock);
 }
 
-//编辑返回
+//编辑返回参数处理
 function computedParams(obj, id) {
     let str = "set ";
-    let index = 0;
     for (let a in obj) {
         if (obj[a].trim() != '' && a != id) {
-            str += a + '="' + obj[a] + '"';
-            if (index >= 1) {
-                str += ',';
-            }
-            index++;
+            str += a + '="' + obj[a] + '",';
         }
     }
+    str = str.substr(0, str.length - 1);
     return str;
 }
 module.exports = router;
